@@ -48,12 +48,12 @@ void Particles::set_emitting(bool p_emitting) {
 
 void Particles::set_amount(int p_amount) {
 
-	amount = p_amount;
+	amount = MAX(p_amount, 1);
 	VS::get_singleton()->particles_set_amount(particles, amount);
 }
 void Particles::set_lifetime(float p_lifetime) {
 
-	lifetime = p_lifetime;
+	lifetime = MAX(p_lifetime, 0.1);
 	VS::get_singleton()->particles_set_lifetime(particles, lifetime);
 }
 void Particles::set_pre_process_time(float p_time) {
